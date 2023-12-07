@@ -34,7 +34,10 @@ const gallery = document.getElementById("gallery");
 const galleryForm = document.querySelector("#galleryForm");
 const imageLinkInput = document.getElementById("imageLink");
 const imageNameInput = document.querySelector("#imageName");
+const removeImage = document.querySelector(".removeImageBtnWrapper")
 
+
+//TO ADD THE IMAGES IN THE ARRAY FROM THIS JS FILE
 function fillGallery() {
   imageList.reverse().forEach((img) => {
     const li = document.createElement("li");
@@ -51,6 +54,8 @@ function fillGallery() {
   });
 }
 
+
+// TO ADD NEW IMAGE USING THE INPUT FIELD
 const addNewImage = () => {
   const img = [].concat(imageList).pop();
   const li = document.createElement("li");
@@ -65,7 +70,7 @@ const addNewImage = () => {
   gallery.prepend(li);
 }
 
-
+//THE CLICK EVENT THAT WILL ADD THE IMAGES
 galleryForm.addEventListener('submit',  (event) => {
   event.preventDefault();
   const imageNameValue = imageNameInput.value;
@@ -80,4 +85,20 @@ galleryForm.addEventListener('submit',  (event) => {
 })
 
 
+
 fillGallery();
+
+//THE CLICK EVENT THAT WILL REMOVE THE FIRST IMAGE
+
+removeImage.addEventListener('click', () => {
+  const deleteImage = imageList.splice(0, 1);  //This will start counting from the first image at index 0 and remove only 1 image.
+  const firstListItem = gallery.firstElementChild;  //This gets the first child of the the gallery an assigns it to the variable firstListElement 
+
+  
+  if (firstListItem) {  // Check if there is a first child before attempting to remove it
+    gallery.removeChild(firstListItem);
+  }
+})
+
+
+
