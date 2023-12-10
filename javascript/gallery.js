@@ -91,12 +91,9 @@ fillGallery();
 //THE CLICK EVENT T0 REMOVE THE FIRST IMAGE ANY TIME IT IS CLICKED
 
 removeImage.addEventListener('click', () => {
-  const deleteImage = imageList.splice(0, 1);  //This will start counting from the first image at index 0 and remove only 1 image from the imageList array.
   const firstListItem = gallery.firstElementChild;  //This gets the first child of the the gallery and assigns it to the variable firstListElement 
-
-  
-  if (firstListItem) {  // Check if there is a first child before attempting to remove it
-    gallery.removeChild(firstListItem); //
+  if (firstListItem) {  // Check if there is a first child 
+    gallery.removeChild(firstListItem); // This removes the first child of the gallery
   }
 })
 
